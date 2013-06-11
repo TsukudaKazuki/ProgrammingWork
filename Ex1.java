@@ -7,7 +7,7 @@ public class Ex1{
         int i=0,sum=0;
         try{
             FileReader filein = new FileReader(args[0]);
-            //うんこちんちん
+            //うんこちんちんアヘ顔ダブルピース
             BufferedReader buffin = new BufferedReader(filein);
             Scanner sc = new Scanner(buffin);
             while(sc.hasNext()){
