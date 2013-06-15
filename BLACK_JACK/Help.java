@@ -37,7 +37,7 @@ public class Help {
 			}else if(in.equals("2")){
 				System.out.println("\n＞(2)製作者\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
 			}else if(in.equals("3")){
-				System.out.println("\n＞(3)見たくない\n＞ではゲームを楽しんでください！\n");
+				System.out.println("\n＞(3)見たくない\n＞ではゲームを楽しんでください！\n＞ちなみにオプションで-settaiPlayを付けることで接待モードに入りますよ！\n");
 				break;
 			}
 

@@ -28,12 +28,13 @@ public class server {
 		//入力ストリーム
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
 		String fromUser;
-		int playMode=0,settaiReStart=0;
+		int playMode=0;
 
 		playMode = Integer.parseInt(in.readLine());//プレイモード読み取り用
 
 		//ゲーム内ループ
 		do{
+			int settaiReStart=0;
 			out.println("\nゲームを始めます");
 			b.set();
 			b.output(playMode);
