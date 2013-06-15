@@ -19,6 +19,10 @@ public class dataIO {
 		{
 			if(args[0].equals("--help")){
 				h.help();
+			}else if(args[0].equals("settaiPlay")){
+				System.out.println("入力されたオプションは存在しません。");
+			}else{
+				System.out.println("入力されたオプションは存在しません。");
 			}
 		}else{
 			try{
