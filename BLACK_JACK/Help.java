@@ -10,7 +10,7 @@ public class Help {
 	void help() throws IOException{
 		do{
 			System.out.println("\n＞ヘルプです。");
-			System.out.println("＞見たい項目を選んでください。\n");
+			System.out.println("＞見たい項目を選んでください。（見たい項目の数字を入力するとその項目が見れます。）\n");
 			System.out.println("＞(1)ルール\n＞(2)製作者\n＞(3)見たくない\n");
 
 			do{
