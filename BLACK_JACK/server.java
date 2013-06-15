@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class server {
 	public PrintWriter out;
-	private
 	public static void main (String[] args)throws IOException{
 		ServerSocket serverS = null;
 		Socket clientS = null;
@@ -40,7 +39,9 @@ public class server {
 				fromUser = in.readLine();
 				if(fromUser == "y"){
 					b.playerDraw();
-					if(checkSum = )
+					if(b.checkSum() == 1){
+						break;
+					}
 				}else{break;}
 			}while(1);
 
@@ -84,7 +85,7 @@ class blackJack {
 		}
 	}
 
-	void checkSum{
+	int checkSum{
 		int i,sum,point;
 		for(i=0; playerCards[i] != 0 ; i++){
 			if(prayerCards[i] == 1 ){
@@ -96,14 +97,18 @@ class blackJack {
 			}else if(playerCards[i] == 11 || playerCards[i] == 12 || playerCards[i] == 13 ){
 				point = 10;
 			}
-			int sum += ;
+			int sum += point;
+		}
+		
+		if(sum > 21){
+			return 1;
 		}
 	}
 
-	void playerDraw{
-		int i;
-		for(i=0; playerCards[i] != 0 ; i++) //配列の要素を全て0で初期化してあるのでiを配列0のところまでカウントアップしてそこにカードの数値を代入する。
-		playerCards[i] = this.draw();
+	void playerDraw(){
+		int count;
+		for(count=0; playerCards[count] != 0 ; count++) //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
+		playerCards[count] = this.draw();
 	}
 
 	int draw(){
