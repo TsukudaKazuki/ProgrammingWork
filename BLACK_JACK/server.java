@@ -33,7 +33,7 @@ public class server {
 		playMode = Integer.parseInt(in.readLine());//プレイモード読み取り用
 
 		//ゲーム内ループ
-		out.println("ルールが分からない場合はオプションに--helpを付けて起動してヘルプを見て下さいね！");
+		if(playMode==0)out.println("ルールが分からない場合はオプションに--helpを付けて起動してヘルプを見て下さいね！");
 		do{
 			int settaiReStart=0;
 			if(playMode==0){
