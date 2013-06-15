@@ -9,15 +9,15 @@ public class Help {
 	String in;
 	void help() throws IOException{
 		do{
-			System.out.println("ヘルプです。");
-			System.out.println("見たい項目を選んでください。\n");
-			System.out.println("(1)ルール\n(2)製作者\n(3)見たくない\n");
+			System.out.println("＞ヘルプです。");
+			System.out.println("＞見たい項目を選んでください。\n");
+			System.out.println("＞(1)ルール\n＞(2)製作者\n＞(3)見たくない\n");
 
 			do{
 			in = stdIn.readLine();
 
 			if(!(in.equals("1") || in.equals("2") || in.equals("3"))){
-				System.out.println("指定外の入力です。\n");
+				System.out.println("＞指定外の入力です。\n");
 			}else{
 				break;
 			}
@@ -33,11 +33,11 @@ public class Help {
 				System.out.println("　・J, Q, Kを引いた場合は持ち点を10加算する。");
 				System.out.println("　・交互に繰り返し、どちらかがあがりを宣言した後、両者の点数を比べ、より21に近い方が勝者となる。");
 				System.out.println("　・持ち点が22以上になるとその時点で敗者となる。");
-				System.out.println("\n\n\n以上です。\n\n\n");
+				System.out.println("\n＞以上です。\n\n");
 			}else if(in.equals("2")){
-				System.out.println("\nこのゲームは\n\n入出力処理:さけちー\n内部処理:つくっち\n\nの提供でお送りします。");
+				System.out.println("\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
 			}else if(in.equals("3")){
-				System.out.println("ではゲームを楽しんでください！\n");
+				System.out.println("＞ではゲームを楽しんでください！\n");
 				break;
 			}
 
