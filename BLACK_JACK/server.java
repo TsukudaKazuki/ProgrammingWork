@@ -6,8 +6,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class server {
-	private static final Boolean TRUE = new Boolean(true);;
-	public static PrintWriter out;
+	private static final Boolean TRUE = new Boolean(true);
+	public  static PrintWriter out;
+	public static blackJackRoutin b = new blackJackRoutin();
 	public static void main (String[] args)throws IOException{
 		ServerSocket serverS = null;
 		Socket clientS = null;
@@ -23,23 +24,23 @@ public class server {
 		}
 
 		//出力ストリーム
-		PrintWriter out = new PrintWriter(clientS.getOutputStream(),true);
+		out = new PrintWriter(clientS.getOutputStream(),true);
 		//入力ストリーム
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
 		String fromUser;
-		blackJack b = new blackJack();
+
 
 		//ゲーム内ループ
 		do{
 			out.println("ゲームを始めます");
 			b.set();
-			b.output();
+			output();
 			do{
 				out.println("カードをドローしますか？ y...はい | n...いいえ");
 				fromUser = in.readLine();
-				if(fromUser == "y"){
+				if(fromUser.equals("y")){
 					b.playerDraw();
-					b.output();
+					output();
 					if(b.checkSumP() > 21 ){
 						out.println("バースト！");
 						break;
@@ -49,14 +50,110 @@ public class server {
 
 			out.println("ディーラーのターン");
 			b.dealerAction();
-			b.output();
-			b.judge();
+			output(1);
+			judge();
 
 			out.println("ゲームを続けますか？ y...はい | n...いいえ");
 			fromUser = in.readLine();
-		}while(fromUser == "y");
+		}while(fromUser.equals("y"));
 		out.println("また遊んで下さいね!");
 		out.close();clientS.close();serverS.close();
+	}
+
+	static void judge(){
+		if(b.checkSumP() < 22 || b.checkSumD() < 22){
+			if(b.checkSumP() < b.checkSumD()){
+
+				out.println("ディーラーの勝利！");
+			}else if(b.checkSumP() > b.checkSumD()){
+				out.println("あなたの勝利！");
+			}else if(b.checkSumP() == b.checkSumD()){
+				out.println("引き分け！");
+			}
+		}else if(b.checkSumP() > 21 && b.checkSumD() > 21){
+			out.println("引き分け！");
+		}else if(b.checkSumP() > 21 && b.checkSumD() < 22){
+			out.println("あなたの勝利！");
+		}else if(b.checkSumP() < 22 && b.checkSumD() > 21){
+			out.println("ディーラーの勝利！");
+		}
+	}
+
+	static void output(){
+		out.println("-----------ステータス-----------");
+		out.print("CPU:");
+		for(int i=0; b.dealerCards[i] != 0 ; i++){
+			if(i==0){
+				if(b.dealerCards[i] == 1){
+					out.print(" A");
+				}else if(b.dealerCards[i] == 11){
+					out.print(" J");
+				}else if(b.dealerCards[i] == 12){
+					out.print(" Q");
+				}else if(b.dealerCards[i] == 13){
+					out.print(" K");
+				}else{
+					out.print(" " + b.dealerCards[i]);
+				}
+			}else{
+				out.print(" ＊");
+				}
+		}
+		out.println();
+		out.print("あなた:");
+		for(int i=0; b.playerCards[i] != 0; i++){
+			if(b.playerCards[i] == 1){
+				out.print(" A");
+			}else if(b.playerCards[i] == 11){
+				out.print(" J");
+			}else if(b.playerCards[i] == 12){
+				out.print(" Q");
+			}else if(b.playerCards[i] == 13){
+				out.print(" K");
+			}else{
+				out.print(" " + b.playerCards[i]);
+			}
+		}
+		out.println();
+		out.println("--------------------------------");
+		out.println("あなたの点数:" + b.checkSumP());
+	}
+
+	static void output(int j){
+		out.println("-----------ステータス-----------");
+		out.print("CPU:");
+		for(int i=0; b.dealerCards[i] != 0 ; i++){
+				if(b.dealerCards[i] == 1){
+					out.print(" A");
+				}else if(b.dealerCards[i] == 11){
+					out.print(" J");
+				}else if(b.dealerCards[i] == 12){
+					out.print(" Q");
+				}else if(b.dealerCards[i] == 13){
+					out.print(" K");
+				}else{
+					out.print(" " + b.dealerCards[i]);
+				}
+		}
+		out.println();
+		out.print("あなた:");
+		for(int i=0; b.playerCards[i] != 0; i++){
+			if(b.playerCards[i] == 1){
+				out.print(" A");
+			}else if(b.playerCards[i] == 11){
+				out.print(" J");
+			}else if(b.playerCards[i] == 12){
+				out.print(" Q");
+			}else if(b.playerCards[i] == 13){
+				out.print(" K");
+			}else{
+				out.print(" " + b.playerCards[i]);
+			}
+		}
+		out.println();
+		out.println("--------------------------------");
+		out.println("CPUの点数:" + b.checkSumD());
+		out.println("あなたの点数:" + b.checkSumP());
 	}
 }
 

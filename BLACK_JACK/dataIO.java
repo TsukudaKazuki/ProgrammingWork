@@ -8,6 +8,7 @@ import java.net.UnknownHostException;
 
 
 public class dataIO {
+	private static final Boolean TRUE = new Boolean(true);
 	public static void main(String[] args)throws IOException{
 		Socket gameS = null; //ソケット
 		BufferedReader in = null;//ソケットからの入力
@@ -25,19 +26,36 @@ public class dataIO {
 		}
 		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		String fromServer;
-		String fromUser;
+		String fromUser = null;
 		while((fromServer = in.readLine()) != null){
 			System.out.println(">" + fromServer);//応答を表示
 			if(fromServer.equals("また遊んで下さいね!"))break;//サーバが会話を打ち切ったので終了
-			fromUser = stdIn.readLine();
-			
-				if(fromUser == "y" || fromUser == "n"){
-				}else{
-					System.out.println("指定外の文字列です。");
+
+			if(fromServer.equals("カードをドローしますか？ y...はい | n...いいえ")){
+				do{
 					fromUser = stdIn.readLine();
-					continue;
-				}
+					if(fromUser.equals("y") || fromUser.equals("n")){
+						break;
+					}else{
+						System.out.println("指定外の文字列です。");
+						continue;
+					}
+				}while(TRUE);
 			out.println(fromUser);
+			}
+
+			if(fromServer.equals("ゲームを続けますか？ y...はい | n...いいえ")){
+				do{
+					fromUser = stdIn.readLine();
+					if(fromUser.equals("y") || fromUser.equals("n") ){
+						break;
+					}else{
+						System.out.println("指定外の文字列です。");
+						continue;
+					}
+				}while(TRUE);
+			out.println(fromUser);
+			}
 		}
 		out.close();in.close();stdIn.close();gameS.close();
 	}
