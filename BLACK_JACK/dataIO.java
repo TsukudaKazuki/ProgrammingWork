@@ -29,7 +29,10 @@ public class dataIO {
 		String fromUser = null;
 		while((fromServer = in.readLine()) != null){
 			System.out.println(">" + fromServer);//応答を表示
-			if(fromServer.equals("また遊んで下さいね!"))break;//サーバが会話を打ち切ったので終了
+			if(fromServer.equals("また遊んで下さいね!")){
+				System.out.println();
+				break;//サーバが会話を打ち切ったので終了
+			}
 
 			if(fromServer.equals("カードをドローしますか？ y...はい | n...いいえ")){
 				do{

@@ -36,14 +36,14 @@ public class server {
 			b.set();
 			b.output();
 			do{
-				out.println("カードをドローしますか？ y...はい | n...いいえ");
+				out.println("カードをドローしますか？ y...はい | n...いいえ\n");
 				fromUser = in.readLine();
 				if(fromUser.equals("y")){
 					b.playerDraw();
 					b.output();
 				}else{break;}
 				if(b.checkSumP() > 21){
-					out.println("\n＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+					out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
 					break;
 				}
 			}while(TRUE);
@@ -53,10 +53,10 @@ public class server {
 			b.output(1);
 			b.judge();
 
-			out.println("ゲームを続けますか？ y...はい | n...いいえ");
+			out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
 			fromUser = in.readLine();
 		}while(fromUser.equals("y"));
-		out.println("また遊んで下さいね!");
+		out.println("また遊んで下さいね!\n");
 		out.close();clientS.close();serverS.close();
 	}
 

@@ -158,7 +158,7 @@ class blackJackRoutin {
 		}
 		server.out.println();
 		server.out.println("--------------------------------");
-		server.out.println("あなたの点数:" + this.checkSumP());
+		server.out.println("\nあなたの点数:" + this.checkSumP() + "\n");
 	}
 
 	void output(int j){
