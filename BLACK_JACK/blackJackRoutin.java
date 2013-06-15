@@ -71,13 +71,13 @@ class blackJackRoutin {
 
 	void playerDraw(){
 		int count;
-		for(count=0; playerCards[count] != 0 ; count++) //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
+		for(count=0; playerCards[count] != 0 ; count++){} //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
 		playerCards[count] = this.draw();
 	}
 
 	void dealerDraw(){
 		int count;
-		for(count=0; dealerCards[count] != 0 ; count++) //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
+		for(count=0; dealerCards[count] != 0 ; count++){} //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
 		dealerCards[count] = this.draw();
 	}
 
@@ -96,9 +96,6 @@ class blackJackRoutin {
 		do{
 			if(this.checkSumD() < 18){
 				this.dealerDraw();
-				if(this.checkSumD() > 21 ){
-					break;
-				}
 			}else{
 				break;
 				}

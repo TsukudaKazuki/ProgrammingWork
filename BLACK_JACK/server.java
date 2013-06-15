@@ -41,11 +41,11 @@ public class server {
 				if(fromUser.equals("y")){
 					b.playerDraw();
 					output();
-					if(b.checkSumP() > 21 ){
-						out.println("バースト！");
-						break;
-					}
 				}else{break;}
+				if(b.checkSumP() > 22){
+					out.println("\n＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+					break;
+				}
 			}while(TRUE);
 
 			out.println("ディーラーのターン");
