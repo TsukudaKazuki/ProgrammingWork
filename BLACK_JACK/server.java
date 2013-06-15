@@ -2,24 +2,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
+import java.net.SystemSocket;
 import java.net.Socket;
 import java.util.Random;
 
 public class server {
-	public PrintWriter out;
+	public static PrintWriter out;
 	public static void main (String[] args)throws IOException{
-		ServerSocket serverS = null;
+		serverSocket serverS = null;
 		Socket clientS = null;
-		try{serverS = new ServerSocket(50000);//接続要求を持つソケット生成
+		try{serverS = new serverSocket(50000);//接続要求を持つソケット生成
 		}catch(IOException e){
 			System.out.println("ポート番号にアクセス出来ません。");
-			System.exit(1);
+			server.exit(1);
 		}
-		try{clientS = serverS.accept();
+		try{clientS = SystemS.accept();
 		}catch(IOException e){
 			System.out.println("acceptに失敗しました。");
-			System.exit(1);
+			server.exit(1);
 		}
 
 		//出力ストリーム
@@ -39,17 +39,22 @@ public class server {
 				fromUser = in.readLine();
 				if(fromUser == "y"){
 					b.playerDraw();
-					if(b.checkSum() == 1){
+					b.output();
+					if(b.checkSumP() > 21 ){
+						out.println("バースト！");
 						break;
 					}
 				}else{break;}
 			}while(1);
 
+			out.println("ディーラーのターン");
+			b.dealerAction();
+			b.output();
+			b.judge();
 
-
-
-
-		}while(continue);
+			out.plintln("ゲームを続けますか？ y...はい | n...いいえ");
+			fromUser = in.readLine();
+		}while(fromUser == "y");
 	}
 }
 
@@ -85,24 +90,39 @@ class blackJack {
 		}
 	}
 
-	int checkSum{
+	int checkSumP(){
 		int i,sum,point;
 		for(i=0; playerCards[i] != 0 ; i++){
-			if(prayerCards[i] == 1 ){
+			if(playerCards[i] == 1 ){
 				if(sum <= 10){
 					point = 10;
 				}else{
 					point = 1;
 				}
-			}else if(playerCards[i] == 11 || playerCards[i] == 12 || playerCards[i] == 13 ){
+			}else if(playerCards[i] > 10 ){
 				point = 10;
 			}
-			int sum += point;
+			sum += point;
 		}
-		
-		if(sum > 21){
-			return 1;
+		return sum;
+	}
+
+	int checkSumD(){
+		int i,sum,point;
+		for(i=0; dealerCards[i] != 0 ; i++){
+			if(dealerCards[i] == 1 ){
+				if(sum <= 10){
+					point = 10;
+				}else{
+					point = 1;
+				}
+			}else if(dealerCards[i] > 10 ){
+				point = 10;
+			}
+			sum += point;
 		}
+
+		return sum;
 	}
 
 	void playerDraw(){
@@ -111,55 +131,92 @@ class blackJack {
 		playerCards[count] = this.draw();
 	}
 
+	void dealerDraw(){
+		int count;
+		for(count=0; dealerCards[count] != 0 ; count++) //配列の要素を全て0で初期化してあるのでcountを配列0のところまでカウントアップしてそこにカードの数値を代入する。
+		dealerCards[count] = this.draw();
+	}
+
 	int draw(){
 		int ran = 0;
 		do{
 			ran = rnd.nextInt(52);
 		}while(trump[ran] == 0);//引いたカードの配列の中身が0なら引き直し
 		int drawCard = trump[ran];
-		trump[ran] = 0;
+		trump[ran] = 0;			//
 
 		return drawCard;
+	}
+
+	void dealerAction(){
+		do{
+			if(this.checkSumD() < 18){
+				this.playerDraw();
+				if(this.checkSumD() > 21 ){
+					break;
+				}
+			}else{break;}
+		}while(1);
+	}
+
+	void judge(){
+		if(checkSumP() < 22 || checkSumD() < 22){
+			if(checkSumP() < checkSumD()){
+				out.println("ディーラーの勝利！");
+			}else if(checkSumP() < checkSumD()){
+				out.println("あなたの勝利！");
+			}else if(checkSumP() = checkSumD()){
+				out.println("引き分け！");
+			}
+		}else if(checkSumP() > 21 && checkSumD() > 21){
+			out.println("引き分け！");
+		}else if(checkSumP() > 21 && checkSumD() < 22){
+			out.println("あなたの勝利！");
+		}else if(checkSumP() < 22 && checkSumD() > 21){
+			out.println("ディーラーの勝利！");
+		}
 	}
 
 	//文字出力担当
 
 	void output(){
-		out.println("-----------ステータス-----------");
-		out.print("CPU:");
+		server.out.println("-----------ステータス-----------");
+		server.out.print("CPU:");
 		for(int i=0; dealerCards[i] != 0 ; i++){
 			if(i==0){
 				if(dealerCards[i] == 1){
-					out.print(" A");
+					server.out.print(" A");
 				}else if(dealerCards[i] == 11){
-					out.print(" J");
+					server.out.print(" J");
 				}else if(dealerCards[i] == 12){
-					out.print(" Q");
+					server.out.print(" Q");
 				}else if(dealerCards[i] == 13){
-					out.print(" K");
+					server.out.print(" K");
 				}else{
-					out.print(" " + dealerCards[i]);
+					server.out.print(" " + dealerCards[i]);
 				}
-				out.print(dealerCards[i]);
+				server.out.print(dealerCards[i]);
 			}
-			out.print(" ＊");
+			server.out.print(" ＊");
 		}
-		out.println();
-		out.print("あなた:");
+		server.out.println();
+		server.out.print("あなた:");
 		for(int i=0; playerCards[i] != 0; i++){
 			if(playerCards[i] == 1){
-				out.print(" A");
+				server.out.print(" A");
 			}else if(playerCards[i] == 11){
-				out.print(" J");
+				server.out.print(" J");
 			}else if(playerCards[i] == 12){
-				out.print(" Q");
+				server.out.print(" Q");
 			}else if(playerCards[i] == 13){
-				out.print(" K");
+				server.out.print(" K");
 			}else{
-				out.print(" " + playerCards[i]);
+				server.out.print(" " + playerCards[i]);
 			}
 		}
-		out.println();
-		out.println("------------------------------");
+		server.out.println();
+		server.out.println("------------------------------");
+		server.out.println("CPUの点数:" + this.checkSumD());
+		server.out.println("あなたの点数:" + this.checkSumP());
 	}
 }
