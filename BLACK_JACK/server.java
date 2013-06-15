@@ -32,7 +32,7 @@ public class server {
 
 		//ゲーム内ループ
 		do{
-			out.println("ゲームを始めます");
+			out.println("\nゲームを始めます");
 			b.set();
 			output();
 			do{
@@ -48,7 +48,7 @@ public class server {
 				}
 			}while(TRUE);
 
-			out.println("ディーラーのターン");
+			out.println("ディーラーのターン\n");
 			b.dealerAction();
 			output(1);
 			judge();
@@ -64,18 +64,18 @@ public class server {
 		if(b.checkSumP() < 22 || b.checkSumD() < 22){
 			if(b.checkSumP() < b.checkSumD()){
 
-				out.println("ディーラーの勝利！");
+				out.println("\nディーラーの勝利！\n");
 			}else if(b.checkSumP() > b.checkSumD()){
-				out.println("あなたの勝利！");
+				out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 			}else if(b.checkSumP() == b.checkSumD()){
-				out.println("引き分け！");
+				out.println("\n引き分け！\n");
 			}
 		}else if(b.checkSumP() > 21 && b.checkSumD() > 21){
-			out.println("引き分け！");
+			out.println("\n引き分け！\n");
 		}else if(b.checkSumP() > 21 && b.checkSumD() < 22){
-			out.println("あなたの勝利！");
+			out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 		}else if(b.checkSumP() < 22 && b.checkSumD() > 21){
-			out.println("ディーラーの勝利！");
+			out.println("\nディーラーの勝利！\n");
 		}
 	}
 
@@ -150,8 +150,7 @@ public class server {
 				out.print(" " + b.playerCards[i]);
 			}
 		}
-		out.println();
-		out.println("--------------------------------");
+		out.println("\n--------------------------------\n");
 		out.println("CPUの点数:" + b.checkSumD());
 		out.println("あなたの点数:" + b.checkSumP());
 	}
