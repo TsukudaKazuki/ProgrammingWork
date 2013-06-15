@@ -26,13 +26,13 @@ public class Help {
 
 			if(in.equals("1")){
 				System.out.println("\n(1)ルール");
-				System.out.println("　・まず両者にカードを2枚ずつ配布する。 ");
-				System.out.println("　・その後、カードを引くかあがるかを決める。");
-				System.out.println("　・A, J, Q, K以外のカードを引いた時は表記されて いる数字をそのまま持ち点に加算する。");
-				System.out.println("　・Aを引いた場合、持ち点が10以下のときは11 を、11以上のときは1を加算する。");
+				System.out.println("　・最初に両者に札を2枚配布する。 ");
+				System.out.println("　・その後、札を引くか引かないかを決める。");
+				System.out.println("　・A, J, Q, K以外の札を引いた時は表記されて いる数字をそのまま持ち点に加算する。");
+				System.out.println("　・Aを引いた場合、持ち点10以下のときは11 を、11以上のときは1を加算する。");
 				System.out.println("　・J, Q, Kを引いた場合は持ち点を10加算する。");
-				System.out.println("　・交互に繰り返し、どちらかがあがりを宣言した後、両者の点数を比べ、より21に近い方が勝者となる。");
-				System.out.println("　・持ち点が22以上になるとその時点で敗者となる。");
+				System.out.println("　・交互に繰り返し、和了宣言後両者の点数を比較し、より21に近い人の勝利となる。");
+				System.out.println("　・持ち点22以上になると即敗者となる。");
 				System.out.println("\n＞以上です。\n");
 			}else if(in.equals("2")){
 				System.out.println("\n＞(2)製作者\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
