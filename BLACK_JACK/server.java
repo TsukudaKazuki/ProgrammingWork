@@ -28,34 +28,63 @@ public class server {
 		//入力ストリーム
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
 		String fromUser;
+		int playMode=0,settaiReStart=0;
+
+		playMode = Integer.parseInt(in.readLine());//プレイモード読み取り用
 
 		//ゲーム内ループ
 		do{
 			out.println("\nゲームを始めます");
 			b.set();
-			b.output();
+			b.output(playMode);
 			do{
-				out.println("カードをドローしますか？ y...はい | n...いいえ\n");
+				if(playMode == 0){
+					out.println("カードをドローしますか？ y...はい | n...いいえ\n");
+				}else{
+					out.println("カードをお渡しいたしましょうか？ y...はい | n...いいえ\n");
+				}
+
 				fromUser = in.readLine();
+
 				if(fromUser.equals("y")){
 					b.playerDraw();
-					b.output();
-				}else{break;}
+					b.output(playMode);
+				}else{
+					break;
+				}
+
 				if(b.checkSumP() > 21){
-					out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+					if(playMode == 0){
+						out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+					}else{
+						settaiReStart=1;
+						out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+						out.println("＿人人人人人＿\n＞　あっ…　＜\n￣Y^Y^Y^Y￣\n");
+						out.println("＿人人人人人人人人人人人人人人人＿\n＞　なぜかカードがばらばらに！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+						out.println("＿人人人人人人人人人人人人人人人＿\n＞　最初からゲームしましょう！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+					}
 					break;
 				}
 			}while(TRUE);
 
+			if(settaiReStart == 1)continue;
 			out.println("ディーラーのターン\n");
-			b.dealerAction();
-			b.output(1);
-			b.judge();
+			b.dealerAction(playMode);
+			b.output(playMode,1);
+			b.judge(playMode);
 
-			out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
+			if(playMode==0){
+				out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
+			}else{
+				out.println("引き続きゲームで遊んで頂けますか？ y...はい | n...いいえ\n");
+			}
 			fromUser = in.readLine();
 		}while(fromUser.equals("y"));
-		out.println("また遊んで下さいね!\n");
+		if(playMode==0){
+			out.println("また遊んで下さいね!\n");
+		}else{
+			out.println("またのプレイをお待ちしております\n");
+		}
 		out.close();clientS.close();serverS.close();
 	}
 

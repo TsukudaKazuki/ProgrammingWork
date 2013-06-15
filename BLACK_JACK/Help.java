@@ -14,13 +14,13 @@ public class Help {
 			System.out.println("＞(1)ルール\n＞(2)製作者\n＞(3)見たくない\n");
 
 			do{
-			in = stdIn.readLine();
+				in = stdIn.readLine();
 
-			if(!(in.equals("1") || in.equals("2") || in.equals("3"))){
-				System.out.println("\n＞指定外の入力です。\n");
-			}else{
-				break;
-			}
+				if(!(in.equals("1") || in.equals("2") || in.equals("3"))){
+					System.out.println("\n＞指定外の入力です。\n");
+				}else{
+					break;
+				}
 
 			}while(TRUE);
 

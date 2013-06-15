@@ -92,38 +92,57 @@ class blackJackRoutin {
 		return drawCard;
 	}
 
-	void dealerAction(){
-		do{
-			if(this.checkSumD() < 18){
-				this.dealerDraw();
+	void dealerAction(int playMode){
+		dealer:do{
+			if(playMode==0){
+				if(this.checkSumD() < 18){
+					this.dealerDraw();
+				}else{
+					break dealer;
+				}
 			}else{
-				break;
+				if(this.checkSumD() < this.checkSumP()){
+					break dealer;
+				}else if(this.checkSumD() > this.checkSumP()){
+					while(this.checkSumD() < 21){
+						this.dealerDraw();
+					}
+				}
+				break dealer;
 			}
 		}while(TRUE);
 	}
 
 
-	void judge(){
-		if(this.checkSumP() < 22 && this.checkSumD() < 22){
-			if(this.checkSumP() < this.checkSumD()){
-				server.out.println("\nディーラーの勝利！\n");
-			}else if(this.checkSumP() > this.checkSumD()){
-				server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
-			}else if(this.checkSumP() == this.checkSumD()){
+	void judge(int playMode){
+		if(playMode == 0){
+			if(this.checkSumP() < 22 && this.checkSumD() < 22){
+				if(this.checkSumP() < this.checkSumD()){
+					server.out.println("\nディーラーの勝利！\n");
+				}else if(this.checkSumP() > this.checkSumD()){
+					server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+				}else if(this.checkSumP() == this.checkSumD()){
+					server.out.println("\n引き分け！\n");
+				}
+			}else if(this.checkSumP() > 22 && this.checkSumD() > 21){
 				server.out.println("\n引き分け！\n");
+			}else if(this.checkSumP() < 22 && this.checkSumD() > 21){
+				server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+			}else if(this.checkSumP() > 21 && this.checkSumD() < 22){
+				server.out.println("\nディーラーの勝利！\n");
 			}
-		}else if(this.checkSumP() > 22 && this.checkSumD() > 21){
-			server.out.println("\n引き分け！\n");
-		}else if(this.checkSumP() < 22 && this.checkSumD() > 21){
-			server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
-		}else if(this.checkSumP() > 21 && this.checkSumD() < 22){
-			server.out.println("\nディーラーの勝利！\n");
+		}else{
+			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 		}
 	}
 
-	void output(){
+	void output(int playMode){
 		server.out.println("-----------ステータス-----------");
-		server.out.print("CPU:");
+		if(playMode==0){
+			server.out.print("CPU:");
+		}else{
+			server.out.print("貴方様の足元にも及ばない愚生:");
+		}
 		for(int i=0; dealerCards[i] != 0 ; i++){
 			if(i==0){
 				if(dealerCards[i] == 1){
@@ -142,7 +161,11 @@ class blackJackRoutin {
 			}
 		}
 		server.out.println();
-		server.out.print("あなた:");
+		if(playMode==0){
+			server.out.print("あなた:");
+		}else{
+			server.out.print("このようなゲームをプレイしてくださる懐の深きお方:");
+		}
 		for(int i=0; playerCards[i] != 0; i++){
 			if(playerCards[i] == 1){
 				server.out.print(" A");
@@ -158,12 +181,20 @@ class blackJackRoutin {
 		}
 		server.out.println();
 		server.out.println("--------------------------------");
-		server.out.println("\nあなたの点数:" + this.checkSumP() + "\n");
+		if(playMode==0){
+			server.out.println("\nあなたの点数:" + this.checkSumP() + "\n");
+		}else{
+			server.out.println("\nこのようなゲームをプレイしてくださる懐の深きお方の点数:" + this.checkSumP() + "\n");
+		}
 	}
 
-	void output(int j){
+	void output(int playMode, int j){
 		server.out.println("-----------ステータス-----------");
-		server.out.print("CPU:");
+		if(playMode==0){
+			server.out.print("CPU:");
+		}else{
+			server.out.print("貴方様の足元にも及ばない愚生:");
+		}
 		for(int i=0; dealerCards[i] != 0 ; i++){
 			if(dealerCards[i] == 1){
 				server.out.print(" A");
@@ -178,7 +209,11 @@ class blackJackRoutin {
 			}
 		}
 		server.out.println();
-		server.out.print("あなた:");
+		if(playMode==0){
+			server.out.print("あなた:");
+		}else{
+			server.out.print("このようなゲームをプレイしてくださる懐の深きお方:");
+		}
 		for(int i=0; playerCards[i] != 0; i++){
 			if(playerCards[i] == 1){
 				server.out.print(" A");
@@ -193,7 +228,12 @@ class blackJackRoutin {
 			}
 		}
 		server.out.println("\n--------------------------------\n");
-		server.out.println("CPUの点数:" + this.checkSumD());
-		server.out.println("あなたの点数:" + this.checkSumP());
+		if(playMode==0){
+			server.out.println("CPUの点数:" + this.checkSumD());
+			server.out.println("あなたの点数:" + this.checkSumP());
+		}else{
+			server.out.println("貴方様の足元にも及ばない愚生の点数:" + this.checkSumD());
+			server.out.println("このようなゲームをプレイしてくださる懐の深きお方の点数:" + this.checkSumP());
+		}
 	}
 }
