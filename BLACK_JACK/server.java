@@ -69,7 +69,7 @@ public class server {
 			}else if(b.checkSumP() == b.checkSumD()){
 				out.println("\n引き分け！\n");
 			}
-		}else if(b.checkSumP() < 22 && b.checkSumD() > 21){
+		}else if(b.checkSumP() > 22 && b.checkSumD() > 21){
 			out.println("\n引き分け！\n");
 		}else if(b.checkSumP() < 22 && b.checkSumD() > 21){
 			out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
