@@ -28,7 +28,7 @@ public class dataIO {
 		String fromUser;
 		while((fromServer = in.readLine()) != null){
 			System.out.println(">" + fromServer);//応答を表示
-			if(fromServer.equals("また遊んで下さいね"))break;//サーバが会話を打ち切ったので終了
+			if(fromServer.equals("また遊んで下さいね!"))break;//サーバが会話を打ち切ったので終了
 			fromUser = stdIn.readLine();
 			
 				if(fromUser == "y" || fromUser == "n"){

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-class blackJack {
+public class blackJack {
 	int playerCounter,dealerCounter;
 	int trump[] = new int[52];
 	int dealerCards[] = new int[52];
