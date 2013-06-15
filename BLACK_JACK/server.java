@@ -35,7 +35,11 @@ public class server {
 		//ゲーム内ループ
 		do{
 			int settaiReStart=0;
-			out.println("\nゲームを始めます");
+			if(playMode==0){
+				out.println("\nゲームを始めます");
+			}else{
+				out.println("\nゲームを始めさせて頂きます");
+			}
 			b.set();
 			b.output(playMode);
 			do{
@@ -69,7 +73,11 @@ public class server {
 			}while(TRUE);
 
 			if(settaiReStart == 1)continue;
-			out.println("ディーラーのターン\n");
+			if(playMode==0){
+				out.println("ディーラーのターン\n");
+			}else{
+				out.println("貴方様の足元にも及ばない愚生のターン\n");
+			}
 			b.dealerAction(playMode);
 			b.output(playMode,1);
 			b.judge(playMode);
