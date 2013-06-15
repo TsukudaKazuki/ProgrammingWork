@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.util.Random;
 
 public class server {
+	public PrintWriter out;
+	private
 	public static void main (String[] args)throws IOException{
 		ServerSocket serverS = null;
 		Socket clientS = null;
@@ -27,14 +29,26 @@ public class server {
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
 		String fromC,fromUser;
 		blackJack b = new blackJack();
-		while((fromUser = in.readLine()) != null){
+
+		//ゲーム内ループ
+		do{
 			out.println("ゲームを始めます");
 			b.set();
 			b.output();
-			out.println("カードをドローしますか？");
+			do{
+				out.println("カードをドローしますか？ y...はい | n...いいえ");
+				fromUser = in.readLine();
+				if(fromUser == "y"){
+					b.playerDraw();
+					if(checkSum = )
+				}else{break;}
+			}while(1);
 
-			out.println(fromC);
-		}
+
+
+
+
+		}while(continue);
 	}
 }
 
@@ -70,6 +84,28 @@ class blackJack {
 		}
 	}
 
+	void checkSum{
+		int i,sum,point;
+		for(i=0; playerCards[i] != 0 ; i++){
+			if(prayerCards[i] == 1 ){
+				if(sum <= 10){
+					point = 10;
+				}else{
+					point = 1;
+				}
+			}else if(playerCards[i] == 11 || playerCards[i] == 12 || playerCards[i] == 13 ){
+				point = 10;
+			}
+			int sum += ;
+		}
+	}
+
+	void playerDraw{
+		int i;
+		for(i=0; playerCards[i] != 0 ; i++) //配列の要素を全て0で初期化してあるのでiを配列0のところまでカウントアップしてそこにカードの数値を代入する。
+		playerCards[i] = this.draw();
+	}
+
 	int draw(){
 		int ran = 0;
 		do{
@@ -84,7 +120,7 @@ class blackJack {
 	//文字出力担当
 
 	void output(){
-		System.out.println("-----------ステータス-----------");
+		out.println("-----------ステータス-----------");
 		out.print("CPU:");
 		for(int i=0; dealerCards[i] != 0 ; i++){
 			if(i==0){

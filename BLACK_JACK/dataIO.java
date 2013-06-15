@@ -36,7 +36,7 @@ public class dataIO {
 					System.out.println("指定外の文字列です。");
 					fromUser = stdIn.readLine();
 					continue;
-				};
+				}
 			out.println(fromUser);
 		}
 		out.close();in.close();stdIn.close();gameS.close();
