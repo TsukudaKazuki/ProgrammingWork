@@ -61,7 +61,7 @@ public class server {
 	}
 
 	static void judge(){
-		if(b.checkSumP() < 22 || b.checkSumD() < 22){
+		if(b.checkSumP() < 22 && b.checkSumD() < 22){
 			if(b.checkSumP() < b.checkSumD()){
 
 				out.println("\nディーラーの勝利！\n");
