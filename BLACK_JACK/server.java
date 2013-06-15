@@ -29,7 +29,6 @@ public class server {
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
 		String fromUser;
 
-
 		//ゲーム内ループ
 		do{
 			out.println("\nゲームを始めます");

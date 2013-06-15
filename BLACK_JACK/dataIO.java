@@ -15,14 +15,9 @@ public class dataIO {
 		PrintWriter out = null;//ソケットへの出力
 		Help h = new Help();
 
-		if(args.length > 0)
-		{
+		if(args.length > 0){
 			if(args[0].equals("--help")){
 				h.help();
-			}else if(args[0].equals("settaiPlay")){
-				System.out.println("入力されたオプションは存在しません。");
-			}else{
-				System.out.println("入力されたオプションは存在しません。");
 			}
 		}else{
 			try{
@@ -39,6 +34,7 @@ public class dataIO {
 			BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 			String fromServer;
 			String fromUser = null;
+
 			while((fromServer = in.readLine()) != null){
 				System.out.println(">" + fromServer);//応答を表示
 				if(fromServer.equals("また遊んで下さいね!")){

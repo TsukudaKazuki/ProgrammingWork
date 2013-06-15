@@ -98,7 +98,7 @@ class blackJackRoutin {
 				this.dealerDraw();
 			}else{
 				break;
-				}
+			}
 		}while(TRUE);
 	}
 
@@ -139,7 +139,7 @@ class blackJackRoutin {
 				}
 			}else{
 				server.out.print(" ＊");
-				}
+			}
 		}
 		server.out.println();
 		server.out.print("あなた:");
@@ -165,17 +165,17 @@ class blackJackRoutin {
 		server.out.println("-----------ステータス-----------");
 		server.out.print("CPU:");
 		for(int i=0; dealerCards[i] != 0 ; i++){
-				if(dealerCards[i] == 1){
-					server.out.print(" A");
-				}else if(dealerCards[i] == 11){
-					server.out.print(" J");
-				}else if(dealerCards[i] == 12){
-					server.out.print(" Q");
-				}else if(dealerCards[i] == 13){
-					server.out.print(" K");
-				}else{
-					server.out.print(" " + dealerCards[i]);
-				}
+			if(dealerCards[i] == 1){
+				server.out.print(" A");
+			}else if(dealerCards[i] == 11){
+				server.out.print(" J");
+			}else if(dealerCards[i] == 12){
+				server.out.print(" Q");
+			}else if(dealerCards[i] == 13){
+				server.out.print(" K");
+			}else{
+				server.out.print(" " + dealerCards[i]);
+			}
 		}
 		server.out.println();
 		server.out.print("あなた:");

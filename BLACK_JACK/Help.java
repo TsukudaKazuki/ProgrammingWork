@@ -25,7 +25,7 @@ public class Help {
 			}while(TRUE);
 
 			if(in.equals("1")){
-				System.out.println("\n（１）ルール");
+				System.out.println("\n(1)ルール");
 				System.out.println("　・まず両者にカードを2枚ずつ配布する。 ");
 				System.out.println("　・その後、カードを引くかあがるかを決める。");
 				System.out.println("　・A, J, Q, K以外のカードを引いた時は表記されて いる数字をそのまま持ち点に加算する。");
@@ -35,9 +35,9 @@ public class Help {
 				System.out.println("　・持ち点が22以上になるとその時点で敗者となる。");
 				System.out.println("\n＞以上です。\n");
 			}else if(in.equals("2")){
-				System.out.println("\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
+				System.out.println("\n＞(2)製作者\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
 			}else if(in.equals("3")){
-				System.out.println("\n＞ではゲームを楽しんでください！\n");
+				System.out.println("\n＞(3)見たくない\n＞ではゲームを楽しんでください！\n");
 				break;
 			}
 
