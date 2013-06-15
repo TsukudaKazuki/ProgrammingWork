@@ -42,7 +42,7 @@ public class server {
 					b.playerDraw();
 					output();
 				}else{break;}
-				if(b.checkSumP() > 22){
+				if(b.checkSumP() > 21){
 					out.println("\n＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
 					break;
 				}
