@@ -101,4 +101,99 @@ class blackJackRoutin {
 				}
 		}while(TRUE);
 	}
+
+
+	void judge(){
+		if(this.checkSumP() < 22 && this.checkSumD() < 22){
+			if(this.checkSumP() < this.checkSumD()){
+				server.out.println("\nディーラーの勝利！\n");
+			}else if(this.checkSumP() > this.checkSumD()){
+				server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+			}else if(this.checkSumP() == this.checkSumD()){
+				server.out.println("\n引き分け！\n");
+			}
+		}else if(this.checkSumP() > 22 && this.checkSumD() > 21){
+			server.out.println("\n引き分け！\n");
+		}else if(this.checkSumP() < 22 && this.checkSumD() > 21){
+			server.out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+		}else if(this.checkSumP() > 21 && this.checkSumD() < 22){
+			server.out.println("\nディーラーの勝利！\n");
+		}
+	}
+
+	void output(){
+		server.out.println("-----------ステータス-----------");
+		server.out.print("CPU:");
+		for(int i=0; dealerCards[i] != 0 ; i++){
+			if(i==0){
+				if(dealerCards[i] == 1){
+					server.out.print(" A");
+				}else if(dealerCards[i] == 11){
+					server.out.print(" J");
+				}else if(dealerCards[i] == 12){
+					server.out.print(" Q");
+				}else if(dealerCards[i] == 13){
+					server.out.print(" K");
+				}else{
+					server.out.print(" " + dealerCards[i]);
+				}
+			}else{
+				server.out.print(" ＊");
+				}
+		}
+		server.out.println();
+		server.out.print("あなた:");
+		for(int i=0; playerCards[i] != 0; i++){
+			if(playerCards[i] == 1){
+				server.out.print(" A");
+			}else if(playerCards[i] == 11){
+				server.out.print(" J");
+			}else if(playerCards[i] == 12){
+				server.out.print(" Q");
+			}else if(playerCards[i] == 13){
+				server.out.print(" K");
+			}else{
+				server.out.print(" " + playerCards[i]);
+			}
+		}
+		server.out.println();
+		server.out.println("--------------------------------");
+		server.out.println("あなたの点数:" + this.checkSumP());
+	}
+
+	void output(int j){
+		server.out.println("-----------ステータス-----------");
+		server.out.print("CPU:");
+		for(int i=0; dealerCards[i] != 0 ; i++){
+				if(dealerCards[i] == 1){
+					server.out.print(" A");
+				}else if(dealerCards[i] == 11){
+					server.out.print(" J");
+				}else if(dealerCards[i] == 12){
+					server.out.print(" Q");
+				}else if(dealerCards[i] == 13){
+					server.out.print(" K");
+				}else{
+					server.out.print(" " + dealerCards[i]);
+				}
+		}
+		server.out.println();
+		server.out.print("あなた:");
+		for(int i=0; playerCards[i] != 0; i++){
+			if(playerCards[i] == 1){
+				server.out.print(" A");
+			}else if(playerCards[i] == 11){
+				server.out.print(" J");
+			}else if(playerCards[i] == 12){
+				server.out.print(" Q");
+			}else if(playerCards[i] == 13){
+				server.out.print(" K");
+			}else{
+				server.out.print(" " + playerCards[i]);
+			}
+		}
+		server.out.println("\n--------------------------------\n");
+		server.out.println("CPUの点数:" + this.checkSumD());
+		server.out.println("あなたの点数:" + this.checkSumP());
+	}
 }
