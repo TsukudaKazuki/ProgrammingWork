@@ -72,9 +72,9 @@ public class server {
 			}
 		}else if(b.checkSumP() > 21 && b.checkSumD() > 21){
 			out.println("\n引き分け！\n");
-		}else if(b.checkSumP() > 21 && b.checkSumD() < 22){
-			out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 		}else if(b.checkSumP() < 22 && b.checkSumD() > 21){
+			out.println("\n＿人人人人人人人人人＿\n＞　あなたの勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+		}else if(b.checkSumP() > 21 && b.checkSumD() < 22){
 			out.println("\nディーラーの勝利！\n");
 		}
 	}
