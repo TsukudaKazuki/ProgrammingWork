@@ -80,7 +80,7 @@ public class server {
 				out.println("貴方様の足元にも及ばない愚生のターン\n");
 			}
 			b.dealerAction(playMode);
-			b.output(playMode,1);
+			b.outputResult(playMode);
 			b.judge(playMode);
 
 			if(playMode==0){

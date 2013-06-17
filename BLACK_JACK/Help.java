@@ -33,7 +33,7 @@ public class Help {
 				System.out.println("　・J, Q, Kを引いた場合は持ち点を10加算する。");
 				System.out.println("　・交互に繰り返し、和了宣言後両者の点数を比較し、より21に近い人の勝利となる。");
 				System.out.println("　・持ち点22以上になると即敗者となる。");
-				System.out.println("\n＞以上です。\n");
+				System.out.println("\n＞以上です。\n対戦過程はResult.txtに書き込まれます。\n");
 			}else if(in.equals("2")){
 				System.out.println("\n＞(2)製作者\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
 			}else if(in.equals("3")){

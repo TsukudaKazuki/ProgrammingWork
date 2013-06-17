@@ -188,7 +188,7 @@ class blackJackRoutin {
 		}
 	}
 
-	void output(int playMode, int j){
+	void outputResult(int playMode){
 		server.out.println("-----------ステータス-----------");
 		if(playMode==0){
 			server.out.print("CPU:");

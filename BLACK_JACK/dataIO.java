@@ -1,4 +1,7 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -10,10 +13,12 @@ import java.net.UnknownHostException;
 public class dataIO {
 	private static final Boolean TRUE = new Boolean(true);
 	public static void main(String[] args)throws IOException{
-		int playMode = 0;
+		int playMode = 0;//0で通常起動,1で接待プレイ,2でヘルプ,3は不正オプションのため終了
 		Socket gameS = null; //ソケット
 		BufferedReader in = null;//ソケットからの入力
 		PrintWriter out = null;//ソケットへの出力
+		File file = null;
+		BufferedWriter bw=null;
 		Help h = new Help();
 
 		if(args.length > 0)
@@ -24,16 +29,21 @@ public class dataIO {
 				playMode=1;
 			}else{
 				System.out.println("入力されたオプションは存在しません。");
+				playMode=3;
 			}
 		}
 
 		if(playMode == 2){
 			h.help();
+		}else if(playMode==3){
+			//何もせずに終了。
 		}else{
 			try{
 				gameS = new Socket(InetAddress.getLocalHost(),50000);
 				in = new BufferedReader(new InputStreamReader(gameS.getInputStream()));
 				out = new PrintWriter(gameS.getOutputStream(),true);
+				file = new File("Result.txt");
+				bw = new BufferedWriter(new FileWriter(file));
 			}catch(UnknownHostException e){
 				if(playMode==0){
 					System.out.println("ホストに接続出来ません。");
@@ -57,6 +67,8 @@ public class dataIO {
 			out.println(playMode);
 
 			while((fromServer = in.readLine()) != null){
+				bw.write(fromServer);
+				bw.newLine();
 				System.out.println(">" + fromServer);//応答を表示
 				if(fromServer.equals("また遊んで下さいね!") || fromServer.equals("またのプレイをお待ちしております")){
 					System.out.println();
@@ -67,6 +79,8 @@ public class dataIO {
 					do{
 						fromUser = stdIn.readLine();
 						if(fromUser.equals("y") || fromUser.equals("n")){
+							bw.write(fromUser);
+							bw.newLine();
 							break;
 						}else{
 							if(playMode==0){
@@ -84,6 +98,8 @@ public class dataIO {
 					do{
 						fromUser = stdIn.readLine();
 						if(fromUser.equals("y") || fromUser.equals("n") ){
+							bw.write(fromUser);
+							bw.newLine();
 							break;
 						}else{
 							if(playMode==0){
@@ -97,7 +113,7 @@ public class dataIO {
 					out.println(fromUser);
 				}
 			}
-			out.close();in.close();stdIn.close();gameS.close();
+			bw.close();out.close();in.close();stdIn.close();gameS.close();
 		}
 	}
 }
