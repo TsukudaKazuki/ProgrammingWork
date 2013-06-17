@@ -27,7 +27,7 @@ public class server {
 		out = new PrintWriter(clientS.getOutputStream(),true);
 		//入力ストリーム
 		BufferedReader in = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
-		String fromUser;
+		String fromUser = null;
 		int playMode=0;
 
 		playMode = Integer.parseInt(in.readLine());//プレイモード読み取り用
@@ -36,19 +36,11 @@ public class server {
 		if(playMode==0)out.println("ルールが分からない場合はオプションに--helpを付けて起動してヘルプを見て下さいね！");
 		do{
 			int settaiReStart=0;
-			if(playMode==0){
-				out.println("\nゲームを始めます");
-			}else{
-				out.println("\nゲームを始めさせて頂きます");
-			}
+			b.gameStartMassage(playMode);
 			b.set();
 			b.output(playMode);
-			do{
-				if(playMode == 0){
-					out.println("カードをドローしますか？ y...はい | n...いいえ\n");
-				}else{
-					out.println("カードをお渡しいたしましょうか？ y...はい | n...いいえ\n");
-				}
+			while(TRUE){
+				b.drawMessage(playMode);
 
 				fromUser = in.readLine();
 
@@ -59,44 +51,23 @@ public class server {
 					break;
 				}
 
-				if(b.checkSumP() > 21){
-					if(playMode == 0){
-						out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
-					}else{
-						settaiReStart=1;
-						out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
-						out.println("＿人人人人人＿\n＞　あっ…　＜\n￣Y^Y^Y^Y￣\n");
-						out.println("＿人人人人人人人人人人人人人人人＿\n＞　なぜかカードがばらばらに！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
-						out.println("＿人人人人人人人人人人人人人人人＿\n＞　最初からゲームしましょう！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
-					}
-					break;
-				}
-			}while(TRUE);
+				settaiReStart = b.burstJudge(playMode);
+				if(settaiReStart != 0)break;
 
-			if(settaiReStart == 1)continue;
-			if(playMode==0){
-				out.println("ディーラーのターン\n");
-			}else{
-				out.println("貴方様の足元にも及ばない愚生のターン\n");
 			}
+			
+			if(settaiReStart == 2)continue;
+
+			b.turnOfDealer(playMode);
 			b.dealerAction(playMode);
 			b.outputResult(playMode);
 			b.judge(playMode);
-
-			if(playMode==0){
-				out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
-			}else{
-				out.println("引き続きゲームで遊んで頂けますか？ y...はい | n...いいえ\n");
-			}
+			b.gameContinue(playMode);
 			fromUser = in.readLine();
 		}while(fromUser.equals("y"));
-		if(playMode==0){
-			out.println("また遊んで下さいね!\n");
-		}else{
-			out.println("またのプレイをお待ちしております\n");
-		}
+		
+		b.endMassage(playMode);
 		out.close();clientS.close();serverS.close();
 	}
-
 }
 

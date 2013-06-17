@@ -8,12 +8,12 @@ public class Help {
 	BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 	String in;
 	void help() throws IOException{
-		do{
+		while(TRUE){
 			System.out.println("\n＞ヘルプです。");
 			System.out.println("＞見たい項目を選んでください。（見たい項目の数字を入力するとその項目が見れます。）\n");
 			System.out.println("＞(1)ルール\n＞(2)製作者\n＞(3)見たくない\n");
 
-			do{
+			while(TRUE){
 				in = stdIn.readLine();
 
 				if(!(in.equals("1") || in.equals("2") || in.equals("3"))){
@@ -22,7 +22,7 @@ public class Help {
 					break;
 				}
 
-			}while(TRUE);
+			}
 
 			if(in.equals("1")){
 				System.out.println("\n(1)ルール");
@@ -33,7 +33,7 @@ public class Help {
 				System.out.println("　・J, Q, Kを引いた場合は持ち点を10加算する。");
 				System.out.println("　・交互に繰り返し、和了宣言後両者の点数を比較し、より21に近い人の勝利となる。");
 				System.out.println("　・持ち点22以上になると即敗者となる。");
-				System.out.println("\n＞以上です。\n対戦過程はResult.txtに書き込まれます。\n");
+				System.out.println("\n＞以上です。\n＞対戦過程はResult.txtに書き込まれます。\n");
 			}else if(in.equals("2")){
 				System.out.println("\n＞(2)製作者\n＞このゲームは\n\n　入出力処理:さけちー\n　内部処理:つくっち\n\n＞の提供でお送りします。");
 			}else if(in.equals("3")){
@@ -43,7 +43,7 @@ public class Help {
 
 
 
-		}while(TRUE);
+		}
 
 	}
 }

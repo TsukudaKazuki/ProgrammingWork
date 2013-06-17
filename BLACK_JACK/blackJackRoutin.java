@@ -236,4 +236,61 @@ class blackJackRoutin {
 			server.out.println("このようなゲームをプレイしてくださる懐の深きお方の点数:" + this.checkSumP());
 		}
 	}
+	
+	void gameContinue(int playMode){
+		if(playMode==0){
+			server.out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
+		}else{
+			server.out.println("引き続きゲームで遊んで頂けますか？ y...はい | n...いいえ\n");
+		}
+	}
+	
+	void endMassage(int playMode){
+		if(playMode==0){
+			server.out.println("また遊んで下さいね!\n");
+		}else{
+			server.out.println("またのプレイをお待ちしております\n");
+		}
+	}
+	
+	void turnOfDealer(int playMode){
+		if(playMode==0){
+			server.out.println("ディーラーのターン\n");
+		}else{
+			server.out.println("貴方様の足元にも及ばない愚生のターン\n");
+		}
+	}
+	
+	int burstJudge(int playMode){
+		if(this.checkSumP() > 21){
+			if(playMode == 0){
+				server.out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+				return 1;
+			}else{
+				server.out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
+				server.out.println("＿人人人人人＿\n＞　あっ…　＜\n￣Y^Y^Y^Y￣\n");
+				server.out.println("＿人人人人人人人人人人人人人人人＿\n＞　なぜかカードがばらばらに！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+				server.out.println("＿人人人人人人人人人人人人人人人＿\n＞　最初からゲームしましょう！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+				return 2;
+			}
+		}else{
+			return 0;
+		}
+	}
+	
+	void drawMessage(int playMode){
+		if(playMode == 0){
+			server.out.println("カードをドローしますか？ y...はい | n...いいえ\n");
+		}else{
+			server.out.println("カードをお渡しいたしましょうか？ y...はい | n...いいえ\n");
+		}
+	}
+	
+	void gameStartMassage(int playMode){
+		if(playMode==0){
+			server.out.println("\nゲームを始めます");
+		}else{
+			server.out.println("\nゲームを始めさせて頂きます");
+		}
+	}
 }

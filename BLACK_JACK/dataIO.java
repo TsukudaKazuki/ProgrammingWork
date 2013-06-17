@@ -46,16 +46,16 @@ public class dataIO {
 				bw = new BufferedWriter(new FileWriter(file));
 			}catch(UnknownHostException e){
 				if(playMode==0){
-					System.out.println("ホストに接続出来ません。");
+					System.out.println("\n＞ホストに接続出来ません。\n");
 				}else{
-					System.out.println("ホストに接続することが出来ませんでした。申し訳ございません。");
+					System.out.println("\n＞ホストに接続することが出来ませんでした。申し訳ございません。\n");
 				}
 				System.exit(1);
 			}catch(IOException e){
 				if(playMode==0){
-				System.out.println("IOコネクションを得られません。");
+				System.out.println("\n＞IOコネクションを得られません。\n");
 				}else{
-					System.out.println("IOコネクションを得ることが出来ませんでした。申し訳ございません。");
+					System.out.println("\n＞IOコネクションを得ることが出来ませんでした。申し訳ございません。\n");
 				}
 				System.exit(1);
 			}
@@ -84,9 +84,9 @@ public class dataIO {
 							break;
 						}else{
 							if(playMode==0){
-								System.out.println("指定外の文字列です。");
+								System.out.println("＞指定外の文字列です。");
 							}else{
-								System.out.println("恥ずかしながらご記入された文字が打ち込まれることを想定しておりませんでした。\nお手数ですが再入力頂けませんでしょうか。");
+								System.out.println("＞恥ずかしながらご記入された文字が打ち込まれることを想定しておりませんでした。\nお手数ですが再入力頂けませんでしょうか。");
 							}
 							continue;
 						}
@@ -103,9 +103,9 @@ public class dataIO {
 							break;
 						}else{
 							if(playMode==0){
-								System.out.println("指定外の文字列です。");
+								System.out.println("＞指定外の文字列です。");
 							}else{
-								System.out.println("恥ずかしながらご記入された文字が打ち込まれることを想定しておりませんでした。\nお手数ですが再入力頂けませんでしょうか。");
+								System.out.println("＞恥ずかしながらご記入された文字が打ち込まれることを想定しておりませんでした。\nお手数ですが再入力頂けませんでしょうか。");
 							}
 							continue;
 						}
