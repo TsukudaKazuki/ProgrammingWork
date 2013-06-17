@@ -103,7 +103,7 @@ class blackJackRoutin {
 			}else{
 				if(this.checkSumD() < this.checkSumP()){
 					break dealer;
-				}else if(this.checkSumD() > this.checkSumP()){
+				}else if(this.checkSumD() >= this.checkSumP()){
 					while(this.checkSumD() < 21){
 						this.dealerDraw();
 					}
