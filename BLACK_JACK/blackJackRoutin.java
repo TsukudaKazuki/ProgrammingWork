@@ -236,7 +236,7 @@ class blackJackRoutin {
 			server.out.println("このようなゲームをプレイしてくださる懐の深きお方の点数:" + this.checkSumP());
 		}
 	}
-	
+
 	void gameContinue(int playMode){
 		if(playMode==0){
 			server.out.println("ゲームを続けますか？ y...はい | n...いいえ\n");
@@ -244,7 +244,7 @@ class blackJackRoutin {
 			server.out.println("引き続きゲームで遊んで頂けますか？ y...はい | n...いいえ\n");
 		}
 	}
-	
+
 	void endMassage(int playMode){
 		if(playMode==0){
 			server.out.println("また遊んで下さいね!\n");
@@ -252,7 +252,7 @@ class blackJackRoutin {
 			server.out.println("またのプレイをお待ちしております\n");
 		}
 	}
-	
+
 	void turnOfDealer(int playMode){
 		if(playMode==0){
 			server.out.println("ディーラーのターン\n");
@@ -260,7 +260,7 @@ class blackJackRoutin {
 			server.out.println("貴方様の足元にも及ばない愚生のターン\n");
 		}
 	}
-	
+
 	int burstJudge(int playMode){
 		if(this.checkSumP() > 21){
 			if(playMode == 0){
@@ -277,7 +277,7 @@ class blackJackRoutin {
 			return 0;
 		}
 	}
-	
+
 	void drawMessage(int playMode){
 		if(playMode == 0){
 			server.out.println("カードをドローしますか？ y...はい | n...いいえ\n");
@@ -285,7 +285,7 @@ class blackJackRoutin {
 			server.out.println("カードをお渡しいたしましょうか？ y...はい | n...いいえ\n");
 		}
 	}
-	
+
 	void gameStartMassage(int playMode){
 		if(playMode==0){
 			server.out.println("\nゲームを始めます");

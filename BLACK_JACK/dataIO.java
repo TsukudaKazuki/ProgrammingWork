@@ -53,7 +53,7 @@ public class dataIO {
 				System.exit(1);
 			}catch(IOException e){
 				if(playMode==0){
-				System.out.println("\n＞IOコネクションを得られません。\n");
+					System.out.println("\n＞IOコネクションを得られません。\n");
 				}else{
 					System.out.println("\n＞IOコネクションを得ることが出来ませんでした。申し訳ございません。\n");
 				}

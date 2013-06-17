@@ -55,7 +55,7 @@ public class server {
 				if(settaiReStart != 0)break;
 
 			}
-			
+
 			if(settaiReStart == 2)continue;
 
 			b.turnOfDealer(playMode);
@@ -65,7 +65,7 @@ public class server {
 			b.gameContinue(playMode);
 			fromUser = in.readLine();
 		}while(fromUser.equals("y"));
-		
+
 		b.endMassage(playMode);
 		out.close();clientS.close();serverS.close();
 	}
