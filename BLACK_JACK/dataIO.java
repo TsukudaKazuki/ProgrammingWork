@@ -13,27 +13,15 @@ import java.net.UnknownHostException;
 public class dataIO {
 	private static final Boolean TRUE = new Boolean(true);
 	public static void main(String[] args)throws IOException{
-		int playMode = 0;//0で通常起動,1で接待プレイ,2でヘルプ,3は不正オプションのため終了
-		Socket gameS = null; //ソケット
-		BufferedReader in = null;//ソケットからの入力
-		PrintWriter out = null;//ソケットへの出力
+		int playMode = 0;			// 0で通常起動,1で接待プレイ,2でヘルプ,3は不正オプションのため終了
+		Socket gameS = null;		// ソケット
+		BufferedReader in = null;	// ソケットからの入力
+		PrintWriter out = null;		// ソケットへの出力
 		File file = null;
-<<<<<<< HEAD
-		BufferedWriter bw=null;		//ファイル出力用
-<<<<<<< HEAD
-<<<<<<< HEAD
-		Help h = new Help();//Helpクラス
-=======
-		BufferedWriter bw=null;
-		Help h = new Help();
->>>>>>> parent of 1f261ca... add コメント
-=======
-		Help h = new Help();		//Helpクラス
->>>>>>> parent of 607ad73... add コメント＆バグ修正
-=======
-		Help h = new Help();		//Helpクラス
->>>>>>> parent of 607ad73... add コメント＆バグ修正
+		BufferedWriter bw=null;		// ファイル出力用
+		Help h = new Help();// Helpクラス
 
+		// オプション入力判定。--helpでヘルプ。-settaiPlayで接待モード起動。
 		if(args.length > 0)
 		{
 			if(args[0].equals("--help")){
@@ -49,7 +37,7 @@ public class dataIO {
 		if(playMode == 2){
 			h.help();
 		}else if(playMode==3){
-			//何もせずに終了。
+			// 何もせずに終了。
 		}else{
 			try{
 				gameS = new Socket(InetAddress.getLocalHost(),50000);
@@ -82,17 +70,18 @@ public class dataIO {
 			while((fromServer = in.readLine()) != null){
 				bw.write(fromServer);
 				bw.newLine();
-				System.out.println(">" + fromServer);//応答を表示
+				System.out.println(">" + fromServer);// 応答を表示
 				if(fromServer.equals("また遊んで下さいね!") || fromServer.equals("またのプレイをお待ちしております")){
 					System.out.println();
-					break;//サーバが会話を打ち切ったので終了
+					break;// サーバが会話を打ち切ったので終了
 				}
 
+				// 入力用。文字の不正入力も検知する。
 				if(fromServer.equals("カードをドローしますか？ y...はい | n...いいえ") || fromServer.equals("カードをお渡しいたしましょうか？ y...はい | n...いいえ")){
 					do{
 						fromUser = stdIn.readLine();
 						if(fromUser.equals("y") || fromUser.equals("n")){
-							bw.write(fromUser);
+							bw.write(fromUser);		// ファイルへの書き込み
 							bw.newLine();
 							break;
 						}else{
@@ -107,6 +96,7 @@ public class dataIO {
 					out.println(fromUser);
 				}
 
+				// 入力用。文字の不正入力も検知する。
 				if(fromServer.equals("ゲームを続けますか？ y...はい | n...いいえ") || fromServer.equals("引き続きゲームで遊んで頂けますか？ y...はい | n...いいえ")){
 					do{
 						fromUser = stdIn.readLine();

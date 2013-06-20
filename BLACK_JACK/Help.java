@@ -4,10 +4,11 @@ import java.io.InputStreamReader;
 
 
 public class Help {
-	public static final Boolean TRUE = new Boolean(true);
-	BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
-	String in;
+	public static final Boolean TRUE = new Boolean(true);		// 無限ループ用true
+	BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); // 文字入力用
+	String in;	// 文字判定用
 	void help() throws IOException{
+		// ここから無限ループ。3を入力で脱出。
 		while(TRUE){
 			System.out.println("\n＞ヘルプです。");
 			System.out.println("＞見たい項目を選んでください。（見たい項目の数字を入力するとその項目が見れます。）\n");
@@ -16,14 +17,13 @@ public class Help {
 			while(TRUE){
 				in = stdIn.readLine();
 
+				// 入力判定
 				if(!(in.equals("1") || in.equals("2") || in.equals("3"))){
 					System.out.println("\n＞指定外の入力です。\n");
 				}else{
 					break;
 				}
-
 			}
-
 			if(in.equals("1")){
 				System.out.println("\n(1)ルール");
 				System.out.println("　・最初に両者に札を2枚配布する。 ");
@@ -40,10 +40,6 @@ public class Help {
 				System.out.println("\n＞(3)見たくない\n＞ではゲームを楽しんでください！\n＞ちなみにオプションで-settaiPlayを付けることで接待モードに入りますよ！\n");
 				break;
 			}
-
-
-
 		}
-
 	}
 }
