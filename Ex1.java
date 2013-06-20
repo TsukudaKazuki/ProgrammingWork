@@ -8,25 +8,25 @@ public class Ex1{
         try{
             FileReader filein = new FileReader(args[0]);
             BufferedReader buffin = new BufferedReader(filein);
-            Scanner sc = new Scanner(buffin);
+            Scanner sc = new Scanner(buffin);   // コマンドライン引数で指定されたファイルを読み込む
             while(sc.hasNext()){
                 i++;
-                are[i-1] = sc.next();
+                are[i-1] = sc.next();           // are[i-1]にファイルを一行ずつ読み込む
             }
             
             for(i=0;i<10;i += 2){
-                System.out.println(are[i]+" "+are[i+1]);
+                System.out.println(are[i]+" "+are[i+1]);    //中身を表示する
             }
             
             for(i=1;i<10;i += 2){
                 
-                sum += Integer.parseInt(are[i]);
+                sum += Integer.parseInt(are[i]);            //点数を加算する
             }
             
-            System.out.println("合計 "+ sum);
+            System.out.println("合計 "+ sum);                //合計点を表示する
             
             for(i=1;i<10;i += 2){
-                System.out.print(are[i]+" ");
+                System.out.print(are[i]+" ");               //すべての点数だけを表示する
             }
             
             System.out.println();
