@@ -21,11 +21,15 @@ public class dataIO {
 <<<<<<< HEAD
 		BufferedWriter bw=null;		//ファイル出力用
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Help h = new Help();//Helpクラス
 =======
 		BufferedWriter bw=null;
 		Help h = new Help();
 >>>>>>> parent of 1f261ca... add コメント
+=======
+		Help h = new Help();		//Helpクラス
+>>>>>>> parent of 607ad73... add コメント＆バグ修正
 =======
 		Help h = new Help();		//Helpクラス
 >>>>>>> parent of 607ad73... add コメント＆バグ修正

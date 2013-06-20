@@ -12,6 +12,7 @@ class blackJackRoutin {
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	// すべての変数の初期化.プレイヤーとディーラーにカードを2枚配布する。
 =======
@@ -33,6 +34,9 @@ class blackJackRoutin {
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 >>>>>>> 5e7a12e0b39badf185d8b13666fddfed0d9df990
+=======
+	//すべての変数の初期化.プレイヤーとディーラーにカードを2枚配布する。//
+>>>>>>> parent of 607ad73... add コメント＆バグ修正
 	void set(){
 
 		for(int i=0; i<52; i++){
@@ -201,6 +205,7 @@ class blackJackRoutin {
 				}else if(this.checkSumD() >= this.checkSumP()){	//現在の合計点がプレイヤー以上であればバーストまでドローする
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 >>>>>>> 5e7a12e0b39badf185d8b13666fddfed0d9df990
@@ -209,6 +214,9 @@ class blackJackRoutin {
 				}else if(this.checkSumD() >= this.checkSumP()){
 					while(this.checkSumD() < 21){
 >>>>>>> parent of 1f261ca... add コメント
+=======
+					while(this.checkSumD() < 21){
+>>>>>>> parent of 607ad73... add コメント＆バグ修正
 =======
 					while(this.checkSumD() < 21){
 >>>>>>> parent of 607ad73... add コメント＆バグ修正
@@ -251,11 +259,15 @@ class blackJackRoutin {
 		// 接待モードでは勝利しかしないので表示はこれだけ用意しておく
 		else{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 =======
 		}else{
 			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 >>>>>>> parent of 1f261ca... add コメント
+=======
+			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+>>>>>>> parent of 607ad73... add コメント＆バグ修正
 =======
 			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 >>>>>>> parent of 607ad73... add コメント＆バグ修正
