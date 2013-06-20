@@ -9,7 +9,7 @@ class blackJackRoutin {
 	Random rnd = new Random();
 
 	
-	//すべての変数の初期化.プレイヤーとディーラーにカードを2枚配布する。//
+	//すべての変数の初期化.プレイヤーとディーラーにカードを2枚配布する。
 	void set(){
 
 		for(int i=0; i<52; i++){
@@ -110,7 +110,7 @@ class blackJackRoutin {
 				if(this.checkSumD() < this.checkSumP()){	//現在の合計点がプレイヤーより低かったらそのまま
 					break dealer;
 				}else if(this.checkSumD() >= this.checkSumP()){	//現在の合計点がプレイヤー以上であればバーストまでドローする
-					while(this.checkSumD() < 21){
+					while(this.checkSumD() < 22){
 						this.dealerDraw();
 					}
 				}
@@ -140,7 +140,7 @@ class blackJackRoutin {
 		}
 		//接待モードでは勝利しかしないので表示はこれだけ用意しておく
 		else{
-			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
+			server.out.println("\n＿人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人＿\n＞　このようなゲームをプレイしてくださる懐の深きお方の勝利！　＜\n￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n");
 		}
 	}
 

@@ -19,7 +19,7 @@ public class dataIO {
 		PrintWriter out = null;		//ソケットへの出力
 		File file = null;
 		BufferedWriter bw=null;		//ファイル出力用
-		Help h = new Help();		//Helpクラス
+		Help h = new Help();//Helpクラス
 
 		//オプション入力判定。--helpでヘルプ。-settaiPlayで接待モード起動。
 		if(args.length > 0)
