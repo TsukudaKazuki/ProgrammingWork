@@ -4,7 +4,7 @@ import java.net.*;
 import java.text.*;
 
 public class Ex4 {
-	public static void main (String[] args)throws IOException{
+	public static void main(String[] args)throws IOException{
 		ServerSocket serverS = null;
 		Socket clientS = null;
 		try{serverS = new ServerSocket(50000);//接続要求を持つソケット生成
@@ -17,15 +17,15 @@ public class Ex4 {
 			System.out.println("acceptに失敗しました。");
 			System.exit(1);
 		}
-        
+
         PrintWriter out = new PrintWriter(clientS.getOutputStream(),true);
         Date now = new Date();
         Format fmt= DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.LONG);   //　日時を取得する
-        
+
 
         out.println(fmt.format(now));   // 日時を表示する
         out.close();clientS.close();serverS.close();
-		
+
 	}
-    
+
 }
