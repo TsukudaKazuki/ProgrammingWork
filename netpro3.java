@@ -14,7 +14,7 @@ public class netpro3{
         //出力ストリームへHTTPのリクエストを書き出す
         out.print("GET "+"/index.html"+" HTTP/1.0\r\n");
         out.println("Host: "+host+":80\r\n");
-        
+
         while((line=in.readLine())!=null){
             if(line.indexOf("<script")!=-1)donotreadflag=1;
             if(line.indexOf("</script")!=-1)donotreadflag=0;//ソース内にscriptが入ってたときにフラグをいじってsplitしないように。
@@ -25,7 +25,7 @@ public class netpro3{
                     System.out.print(str[0]);
                     for(String s: str){
                         String[] temp=s.split(">");
-                        
+
                         if(temp.length>=2){
                             System.out.print(temp[1]);
                         }
@@ -37,6 +37,6 @@ public class netpro3{
         in.close();
         out.close();
         soc.close();
-        
+
     }
 }
