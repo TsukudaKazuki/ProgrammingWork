@@ -20,6 +20,9 @@ class blackJackRoutin {
 	//////////////////////////////////////////////////////////
 
 >>>>>>> parent of 1f261ca... add コメント
+<<<<<<< HEAD
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
+=======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void set(){
 
@@ -40,7 +43,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// プレイヤーの合計点を計算する。
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	int checkSumP(){
@@ -62,8 +68,12 @@ class blackJackRoutin {
 		return sum;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	// ディーラーの合計点を計算する。
+=======
+
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
@@ -88,7 +98,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// プレイヤーのドロー動作
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void playerDraw(){
@@ -98,7 +111,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ディーラーのドロー動作
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void dealerDraw(){
@@ -108,7 +124,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ドローメソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	int draw(){
@@ -118,7 +137,11 @@ class blackJackRoutin {
 		}while(trump[ran] == 0);// 引いたカードの配列の中身が0なら引き直し
 		int drawCard = trump[ran];
 <<<<<<< HEAD
+<<<<<<< HEAD
 		trump[ran] = 0;			// 引いたカードということを表すために0を代入しておく。
+=======
+		trump[ran] = 0;			//
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 		trump[ran] = 0;			//
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
@@ -126,6 +149,7 @@ class blackJackRoutin {
 		return drawCard;
 	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	// ディーラーの思考ルーチン
 	void dealerAction(int playMode){
@@ -151,6 +175,16 @@ class blackJackRoutin {
 				}else{
 					break dealer;
 				}
+=======
+	void dealerAction(int playMode){
+		dealer:do{
+			if(playMode==0){
+				if(this.checkSumD() < 18){
+					this.dealerDraw();
+				}else{
+					break dealer;
+				}
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 			}else{
 				if(this.checkSumD() < this.checkSumP()){
 					break dealer;
@@ -171,7 +205,11 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// 勝敗判定クラス
+=======
+
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
@@ -205,7 +243,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ステータス表示
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void output(int playMode){
@@ -217,7 +258,10 @@ class blackJackRoutin {
 		}
 		for(int i=0; dealerCards[i] != 0 ; i++){
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// 1,11,12,13という数字で扱っているので表示するために変換する
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 			if(i==0){
@@ -234,7 +278,11 @@ class blackJackRoutin {
 				}
 			}else{
 <<<<<<< HEAD
+<<<<<<< HEAD
 				server.out.print(" ＊");	// CPUの手札を隠蔽する
+=======
+				server.out.print(" ＊");
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 				server.out.print(" ＊");
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
@@ -269,7 +317,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// CPUの手札, 合計点を含めた最終結果を表示する
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void outputResult(int playMode){
@@ -322,7 +373,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ゲームを続けるかの意思確認表示メソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void gameContinue(int playMode){
@@ -334,7 +388,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ゲーム終了メッセージ表示メソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void endMassage(int playMode){
@@ -346,7 +403,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ディーラーのターンであることを表示するためのメソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void turnOfDealer(int playMode){
@@ -358,7 +418,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// バーストしたかどうかを判定するメソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	int burstJudge(int playMode){
@@ -367,9 +430,13 @@ class blackJackRoutin {
 				server.out.println("＿人人人人人人人＿\n＞　バースト！　＜\n￣Y^Y^Y^Y^Y^Y￣\n");
 				return 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			}
 			// 接待プレイ時はバーストしていればゲームを初めからスタートさせる
 			else{
+=======
+			}else{
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 			}else{
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
@@ -385,7 +452,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ドローするか否かの意思確認
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void drawMessage(int playMode){
@@ -397,7 +467,10 @@ class blackJackRoutin {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// ゲーム開始メッセージ表示メソッド
+=======
+>>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 =======
 >>>>>>> 12ca7b1dee28486c7a5350f4e8a3127325df5762
 	void gameStartMassage(int playMode){
