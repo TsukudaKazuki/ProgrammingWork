@@ -20,10 +20,10 @@ public class Ex4 {
         
         PrintWriter out = new PrintWriter(clientS.getOutputStream(),true);
         Date now = new Date();
-        Format fmt= DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.LONG);
+        Format fmt= DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.LONG);   //　日時を取得する
         
 
-        out.println(fmt.format(now));
+        out.println(fmt.format(now));   // 日時を表示する
         out.close();clientS.close();serverS.close();
 		
 	}

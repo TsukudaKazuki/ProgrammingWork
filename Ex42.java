@@ -23,11 +23,10 @@ public class Ex42 {
 			System.out.println("IOコネクションを得られません。");
 			System.exit(1);
 		}
-		/*BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));*/
-        String fromServer;
-        /*String fromUser;*/
-        fromServer = in.readLine();
+		
+        String fromServer;  //サーバからの応答を格納するための変数
+        fromServer = in.readLine(); // サーバからの応答を格納
         System.out.println(fromServer);//応答を表示
-        out.close(); in.close();/*stdIn.close();*/dateS.close();
+        out.close(); in.close();dateS.close();
 	}
 }
